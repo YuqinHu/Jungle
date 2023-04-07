@@ -10,6 +10,12 @@
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
     <a class="navbar-brand" href="<%= about_path %>">About Us</a>
+    <% if current_user %>
+    Signed in as <%= current_user.email%> | <%= link_to "Logout", '/logout' %>
+  <% else %>
+    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/users/new' %>
+  <% end %>
+
     <button
       class="navbar-toggler"
       type="button"
